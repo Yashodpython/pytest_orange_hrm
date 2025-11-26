@@ -9,7 +9,7 @@ def test_sub():
 def test_login4():
     assert 5 - 4 == 0, "sub is not equl"
 def test_validate_char():
-    str1="hello"
+    str1="hellllllo"
     assert "h" in str1, "invalid character in 'h'"
 
 
