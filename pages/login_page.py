@@ -15,10 +15,10 @@ def open_browser():
     driver.maximize_window()
     time.sleep(5)
 
-def enter_username(username):
+def enter_username(browser,username):
 
     username_xpath="//input[@name='username']"
-    driver.find_element(By.XPATH, username_xpath).send_keys(username)
+    browser.find_element(By.XPATH, username_xpath).send_keys(username)
 def enter_password(password):
     password_xpath="//input[@name='password']"
     driver.find_element(By.XPATH, password_xpath).send_keys(password)
