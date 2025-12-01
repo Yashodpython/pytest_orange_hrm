@@ -1,12 +1,19 @@
 import sys
-sys.path.append(r"C:\Users\Admin\Desktop\Python_Practise")
+import os
 
-from pages.login_page import *
+current_file_path=os.path.abspath(__file__)
+sys.path.append(current_file_path)
+
+
+#from pages.login_page import *
+from pages.Register_page import *
 
 
 def test_validate_loginpage_with_valid_credentials(browser):
+
     #open_browser()
-    enter_username(browser,"Admin")
+    switch_or_select_Home()
+    # enter_username("Admin")
     # enter_password("admin123")
     # click_on_login_button()
     # assert_login_page()

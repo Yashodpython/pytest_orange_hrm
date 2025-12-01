@@ -1,13 +1,15 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture
 def browser():
-    service = Service(r"C:\chromedriver-win64\chromedriver-win64\chromedriver.exe")
-    driver = webdriver.Chrome(service=service)
-    driver.get(r"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")   # 🔹 Open browser
+    #service =webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    #driver.get(r"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    driver.get(r"https://demo.automationtesting.in/FileUpload.html")
     driver.maximize_window()
     yield driver                    # 🔹 Test runs at this point
     driver.quit()

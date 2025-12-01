@@ -3,22 +3,25 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 
 
 
 def open_browser():
     global driver
-    service = Service(r"C:\chromedriver-win64\chromedriver-win64\chromedriver.exe")
-    driver = webdriver.Chrome(service=service)
-    driver.get(r"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    #driver.get(r"https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    driver.get(r"https://demo.automationtesting.in/FileUpload.html")
     driver.maximize_window()
     time.sleep(5)
 
-def enter_username(browser,username):
+def enter_username(username):
 
     username_xpath="//input[@name='username']"
-    browser.find_element(By.XPATH, username_xpath).send_keys(username)
+    driver.find_element(By.XPATH, username_xpath).send_keys(username)
 def enter_password(password):
     password_xpath="//input[@name='password']"
     driver.find_element(By.XPATH, password_xpath).send_keys(password)
